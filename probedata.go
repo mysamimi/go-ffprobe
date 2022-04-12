@@ -120,9 +120,8 @@ type StreamTags struct {
 
 // StreamSideDataList is a json data structure to represent stream side_data_list
 type StreamSideDataList struct {
-	SideDataType  string `json:"side_data_type,string,omitempty"`
-	DisplayMatrix string `json:"displaymatrix,string,omitempty"`
-	Rotation      int    `json:"rotation,omitempty"`
+	SideDataType string `json:"side_data_type,string,omitempty"`
+	Rotation     int    `json:"rotation,omitempty"`
 }
 
 // StartTime returns the start time of the media file as a time.Duration
