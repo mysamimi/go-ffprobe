@@ -3,10 +3,11 @@ package ffprobe
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
 	"os/exec"
+
+	jsoniter "github.com/json-iterator/go"
 )
 
 var (
@@ -79,6 +80,7 @@ func runProbe(cmd *exec.Cmd) (data *ProbeData, err error) {
 	}
 
 	data = &ProbeData{}
+	var json = jsoniter.ConfigCompatibleWithStandardLibrary
 	err = json.Unmarshal(outputBuf.Bytes(), data)
 	if err != nil {
 		return data, fmt.Errorf("error parsing ffprobe output: %w", err)
